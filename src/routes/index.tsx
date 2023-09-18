@@ -5,11 +5,13 @@ import ProfilePage from "../pages/profile";
 import AuthGuard from "./auth-guard";
 
 const RoutesTable = () => (
-  <Routes location={location}>
-    <Route path="/" element={<AuthGuard component={HomePage} />} />
-    <Route path="/profile" element={<AuthGuard component={ProfilePage} />} />
-    <Route path="*" element={<NotFound />} />
-  </Routes>
+  <div className="mt-[50px]">
+    <Routes location={location}>
+      <Route path="/" element={<AuthGuard component={HomePage} />} />
+      <Route path="/profile" element={<AuthGuard component={ProfilePage} />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </div>
 );
 
 export default RoutesTable;

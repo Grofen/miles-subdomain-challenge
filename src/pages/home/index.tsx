@@ -1,9 +1,7 @@
+import Home from "../../components/home";
+
 const HomePage = (): JSX.Element => {
-  return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
-  );
+  return <Home />;
 };
 
 export default HomePage;
