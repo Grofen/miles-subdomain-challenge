@@ -6,7 +6,7 @@ import Button from "../button";
 import UserDropdown from "./user-dropdown";
 
 const Navbar = () => {
-  const { user, loginWithRedirect, logout, isLoading } = useAuth0();
+  const { user, logout, isLoading } = useAuth0();
 
   return (
     <header className="fixed w-full top-0 right-0 bg-black z-50">
@@ -23,15 +23,8 @@ const Navbar = () => {
           </Button>
         </div>
         <div className="flex flex-1 justify-end">
-          {user && !isLoading ? (
+          {user && !isLoading && (
             <UserDropdown user={user} logoutHandler={logout} />
-          ) : (
-            <Button onClick={() => loginWithRedirect()} disabled={isLoading}>
-              <div className="text-sm font-semibold leading-6 text-white">
-                Login
-                <span aria-hidden="true">&rarr;</span>
-              </div>
-            </Button>
           )}
         </div>
       </nav>
