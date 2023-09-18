@@ -18,5 +18,5 @@
 
 .viewPort {
   composes: suspended;
-  height: 100vh;
+  height: calc(100vh - 107px);
 }
