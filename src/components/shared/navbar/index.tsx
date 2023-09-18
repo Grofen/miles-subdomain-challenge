@@ -8,6 +8,14 @@ import UserDropdown from "./user-dropdown";
 const Navbar = () => {
   const { user, logout, isLoading } = useAuth0();
 
+  const logoutHandler = () => {
+    logout({
+      logoutParams: {
+        returnTo: window.location.origin,
+      },
+    });
+  };
+
   return (
     <header className="fixed w-full top-0 right-0 bg-black z-50">
       <nav
@@ -24,7 +32,7 @@ const Navbar = () => {
         </div>
         <div className="flex flex-1 justify-end">
           {user && !isLoading && (
-            <UserDropdown user={user} logoutHandler={logout} />
+            <UserDropdown user={user} logoutHandler={logoutHandler} />
           )}
         </div>
       </nav>
