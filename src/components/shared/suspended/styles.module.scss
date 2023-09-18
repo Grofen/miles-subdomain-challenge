@@ -1,0 +1,22 @@
+.suspended {
+  align-items: center;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  width: 100%;
+}
+
+.short {
+  composes: suspended;
+  height: 150px;
+}
+
+.stretch {
+  composes: suspended;
+  height: 100%;
+}
+
+.viewPort {
+  composes: suspended;
+  height: 100vh;
+}

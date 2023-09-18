@@ -1,0 +1,22 @@
+$transitionDurationFast: 0.125s;
+$transitionDurationVerySlow: 2s;
+
+$transitionTimingFunctionDefault: ease;
+
+@keyframes full-rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.icon {
+  animation: full-rotation 2s linear none infinite;
+  border: 4px solid #eee;
+  border-left-color: #000;
+  border-radius: 50%;
+  height: 44px;
+  width: 44px;
+}
