@@ -7,9 +7,11 @@ type Props = {
 };
 
 const AuthGuard = ({ component }: Props): JSX.Element => {
-  const Component = withAuthenticationRequired(component, {
+  const args = {
     onRedirecting: () => <Suspended isLoading={true} variant={"viewPort"} />,
-  });
+  };
+
+  const Component = withAuthenticationRequired(component, args);
 
   return <Component />;
 };
