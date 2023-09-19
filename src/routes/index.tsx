@@ -5,7 +5,7 @@ import ProfilePage from "../pages/profile";
 import AuthGuard from "./auth-guard";
 
 const RoutesTable = () => (
-  <div className="mt-[50px]">
+  <div className="mt-[157px]">
     <Routes location={location}>
       <Route path="/" element={<AuthGuard component={HomePage} />} />
       <Route path="/profile" element={<AuthGuard component={ProfilePage} />} />

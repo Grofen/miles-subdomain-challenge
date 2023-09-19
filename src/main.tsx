@@ -8,6 +8,7 @@ import {
   AUTH0_CLIENT_ID,
   AUTH0_COOKIE_DOMAIN,
   AUTH0_ISSUER_BASE_URL,
+  AUTH0_SCOPE,
 } from "./config/index.ts";
 
 import "./index.css";
@@ -19,6 +20,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         clientId={AUTH0_CLIENT_ID}
         cookieDomain={AUTH0_COOKIE_DOMAIN}
         domain={AUTH0_ISSUER_BASE_URL}
+        authorizationParams={{
+          redirect_uri: window.location.origin,
+          scope: AUTH0_SCOPE,
+        }}
       >
         <App />
       </AuthenticationProvider>

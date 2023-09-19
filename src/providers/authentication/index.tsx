@@ -7,10 +7,11 @@ import {
 
 type Props = Pick<
   Auth0ProviderOptions,
-  "children" | "domain" | "clientId" | "cookieDomain"
+  "children" | "domain" | "clientId" | "cookieDomain" | "authorizationParams"
 >;
 
 const AuthenticationProvider = ({
+  authorizationParams,
   children,
   clientId,
   cookieDomain,
@@ -24,13 +25,11 @@ const AuthenticationProvider = ({
 
   return (
     <Auth0Provider
-      domain={domain}
+      authorizationParams={authorizationParams}
       clientId={clientId}
-      onRedirectCallback={onRedirectCallback}
       cookieDomain={cookieDomain}
-      authorizationParams={{
-        redirect_uri: window.location.origin,
-      }}
+      domain={domain}
+      onRedirectCallback={onRedirectCallback}
       useRefreshTokens
     >
       {children}
