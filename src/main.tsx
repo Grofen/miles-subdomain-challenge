@@ -23,6 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         authorizationParams={{
           redirect_uri: window.location.origin,
           scope: AUTH0_SCOPE,
+          audience: "https://dev-rh8627410gt78mfk.us.auth0.com/api/v2/",
         }}
       >
         <App />
