@@ -1,6 +1,6 @@
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon, UserIcon } from "@heroicons/react/24/outline";
-import Button from "../button";
+import Button from "../../button";
 import { Fragment } from "react";
 import { User } from "@auth0/auth0-react";
 

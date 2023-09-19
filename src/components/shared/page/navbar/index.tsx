@@ -1,8 +1,8 @@
 import { useAuth0 } from "@auth0/auth0-react";
 
-import { ReactComponent as MilesLogo } from "../../../images/miles-logo.svg";
+import { ReactComponent as MilesLogo } from "images/miles-logo.svg";
 
-import Button from "../button";
+import Button from "../../button";
 import UserDropdown from "./user-dropdown";
 
 const Navbar = () => {
