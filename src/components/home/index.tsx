@@ -21,7 +21,11 @@ const Home = (): JSX.Element => {
                 You can find the code for this project on GitHub.
               </p>
               <div className="mt-10 flex items-center gap-x-6">
-                <Button href={githubLink} className="justify-center">
+                <Button
+                  href={githubLink}
+                  className="justify-center"
+                  target="_blank"
+                >
                   To GitHub <span aria-hidden="true">&rarr;</span>
                 </Button>
               </div>

@@ -1,8 +1,8 @@
 import { Menu, Transition } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import { User } from "@auth0/auth0-react";
+import { ChevronDownIcon, UserIcon } from "@heroicons/react/24/outline";
 import Button from "../button";
 import { Fragment } from "react";
+import { User } from "@auth0/auth0-react";
 
 interface Props {
   user: User;
@@ -33,11 +33,20 @@ const UserDropdown = ({ user, logoutHandler }: Props): JSX.Element => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div className="py-2 px-4">
+          <Menu.Items className="absolute right-0 mt-2 w-40 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <div className="p-4 flex flex-col gap-3">
+              <Menu.Item>
+                <Button href="/profile" invert>
+                  <div className="flex items-center justifify-center flex-row gap-3">
+                    Profile
+                    <UserIcon className="w-5 h-5 mr-2" />
+                  </div>
+                </Button>
+              </Menu.Item>
+
               <Menu.Item>
                 <Button onClick={() => logoutHandler()}>
-                  <div className="text-sm font-semibold leading-6 text-white">
+                  <div className="flex items-center justifify-center flex-row gap-3">
                     Logout
                     <span aria-hidden="true">&rarr;</span>
                   </div>

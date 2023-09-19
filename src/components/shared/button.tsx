@@ -15,11 +15,11 @@ const Button = ({
   ...props
 }: ButtonProps): JSX.Element => {
   className = clsx(
-    className,
     "inline-flex rounded-full px-4 py-1.5 text-sm font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed",
     invert
       ? "bg-white text-neutral-950 hover:bg-neutral-200"
-      : "bg-neutral-950 text-white hover:bg-neutral-800"
+      : "bg-neutral-950 text-white hover:bg-neutral-800",
+    className
   );
 
   const inner = <span className="relative top-px">{children}</span>;
@@ -35,7 +35,7 @@ const Button = ({
   const { href, ...restProps } = props;
 
   return (
-    <a href={href} className={className} {...restProps} target="_blank">
+    <a href={href} className={className} {...restProps}>
       {inner}
     </a>
   );
