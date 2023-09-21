@@ -4,22 +4,23 @@ const useSubdomainName = (): {
 } => {
   const { hostname } = window.location;
   const subdomain = hostname.split(".")[0];
+  const githubLink = "https://github.com/Grofen/miles-subdomain-challenge";
 
   if (subdomain === "d1") {
     return {
       name: "#1",
-      githubLink: "https://github.com/Grofen/miles-subdomain-challenge",
+      githubLink,
     };
   } else if (subdomain === "d2") {
     return {
       name: "#2",
-      githubLink: "https://github.com/Grofen/miles-subdomain-challenge",
+      githubLink,
     };
   }
 
   return {
     name: "Miles",
-    githubLink: "",
+    githubLink,
   };
 };
 

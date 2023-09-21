@@ -18,11 +18,7 @@ const ProfilePage = (): JSX.Element => {
     content = <Profile user={user} />;
   }
 
-  return (
-    <Page name="profile" title="Profile">
-      {content}
-    </Page>
-  );
+  return <Page>{content}</Page>;
 };
 
 export default ProfilePage;

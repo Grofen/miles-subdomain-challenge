@@ -6,6 +6,7 @@ import userData from "test-utils/mocks/user.json";
 
 import ComponentTestHarness from "test-utils/component-test-harness";
 import Profile from "../";
+import { waitForNoLoadingSpinner } from "test-utils/loading";
 
 const Wrapper = (): JSX.Element => {
   return (
@@ -18,8 +19,11 @@ const Wrapper = (): JSX.Element => {
 };
 
 describe("<Profile />", () => {
-  it("Should display user name", () => {
+  it("Should display user name", async () => {
     render(<Wrapper />);
+
+    await waitForNoLoadingSpinner();
+
     expect(
       screen.getByText(`Welcome back, ${userData.name}!`)
     ).toBeInTheDocument();

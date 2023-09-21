@@ -2,7 +2,7 @@ const HeroOverlay = () => {
   return (
     <>
       <svg
-        className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
+        className="absolute inset-x-0 top-0 -z-10 h-[42rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
         aria-hidden="true"
       >
         <defs>
@@ -31,7 +31,7 @@ const HeroOverlay = () => {
         />
       </svg>
       <div
-        className="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
+        className="absolute left-1/2 right-0 top-0 -z-10 h-[42rem] -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
         aria-hidden="true"
       >
         <div

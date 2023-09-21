@@ -21,7 +21,7 @@ const ContentTile = ({
 }: PropsWithChildren<Props>) => {
   return (
     <div
-      className={cx("", className)}
+      className={cx("bg-white p-6 rounded-lg shadow-md mt-4", className)}
       {...(dataTestId ? { "data-testid": dataTestId } : {})}
     >
       {(title || headerContent) && (

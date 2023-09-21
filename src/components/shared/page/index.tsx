@@ -1,36 +1,27 @@
 import { PropsWithChildren } from "react";
 import cx from "clsx";
 
-import { Suspense } from "react";
-
 import Navbar from "./navbar";
-import Loading from "../loading";
 
 type Props = {
-  customPageHeader?: JSX.Element;
-  isLoading?: boolean;
-  isNavShown?: boolean;
-  name: string;
-  title?: string;
-  wrapperClassName?: string;
   contentClassName?: string;
+  isNavShown?: boolean;
+  wrapperClassName?: string;
 };
 
 const Page = ({
   children,
+  contentClassName = "",
   isNavShown = true,
   wrapperClassName = "",
-  contentClassName = "",
 }: PropsWithChildren<Props>): JSX.Element => {
   return (
-    <Suspense fallback={<Loading />}>
-      <div className={cx("", wrapperClassName)}>
-        {isNavShown && <Navbar />}
-        <div className={cx("", contentClassName)}>
-          <div className="">{children}</div>
-        </div>
+    <div className={cx("pt-36 pb-36 sm:pt-60 lg:pt-60", wrapperClassName)}>
+      {isNavShown && <Navbar />}
+      <div className={cx("", contentClassName)}>
+        <div className="">{children}</div>
       </div>
-    </Suspense>
+    </div>
   );
 };
 
