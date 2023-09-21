@@ -1,6 +1,11 @@
+import Button from "components/shared/button";
 import Container from "components/shared/container";
 import ContentTile from "components/shared/content-title";
 import Page from "components/shared/page";
+
+import allowedUrls from "images/allowed-urls.png";
+import customForms from "images/custom-forms.png";
+import authenticationProvider from "images/authentication-provider.png";
 
 const CaseStudyPage = (): JSX.Element => {
   return (
@@ -15,8 +20,20 @@ const CaseStudyPage = (): JSX.Element => {
             <h2 className="text-2xl font-semibold mb-4">Motivation</h2>
             <p>
               The objective of this project is to develop a suite of separate
-              Single Page Applications (SPAs), each residing on a subdomain of a
-              common parent domain (e.g., app1.miles.com and app2.miles.com).
+              Single Page Applications, each residing on a subdomain of a common
+              parent domain{" "}
+              <span className="font-bold">
+                <Button className="px-2" href="https://d1.mghorab.com" invert>
+                  d1.mghorab.com
+                </Button>
+              </span>{" "}
+              and{" "}
+              <span className="font-bold">
+                <Button className="px-2" href="https://d2.mghorab.com" invert>
+                  d2.mghorab.com
+                </Button>
+              </span>
+              .
             </p>
           </ContentTile>
 
@@ -51,144 +68,207 @@ const CaseStudyPage = (): JSX.Element => {
             </ul>
           </ContentTile>
 
-          <div className="bg-white p-6 rounded-lg shadow-md mt-4">
-            <h2 className="text-2xl font-semibold mb-4">
-              Design and Implementation Approach
-            </h2>
-            <p>
-              <strong>Project Structure:</strong> The project structure was
-              organized as follows:
-            </p>
-            <ul className="list-disc list-inside ml-4">
-              <li>
-                components: Contains both pages-related and shared components.
-              </li>
-              <li>hooks: Includes custom hooks for various functionalities.</li>
-              <li>
-                Images: Stores icons and images used throughout the
-                applications.
-              </li>
-              <li>pages: Houses top-level components for each page.</li>
-              <li>
-                providers: Manages context providers for state management.
-              </li>
-              <li>routes: Contains route configurations and utilities.</li>
-              <li>
-                types: Defines TypeScript types used throughout the application.
-              </li>
-              <li>test-utils: Provides utilities for testing purposes.</li>
-            </ul>
+          <ContentTile className="flex gap-6 flex-col mt-4">
+            <h1 className="text-3xl font-bold mb-4">Project Kickoff</h1>
+
+            <div className="flex flex-col gap-3">
+              <h2 className="text-2xl font-semibold">Configuration of Auth0</h2>
+              <p>
+                I began the project by configuring Auth0 following their
+                documentation. Here's an overview of the steps I took:
+              </p>
+              <ol className="list-decimal list-inside pl-4 mt-4 text-gray-700">
+                <li>Initiated a new React application.</li>
+                <li>
+                  Set up the application URIs, allowing Callback, Logout, and
+                  Web origins URLs. These included:
+                  <ul className="list-disc list-inside pl-4 mt-2">
+                    <li>
+                      <code>http://127.0.0.1:5173</code>
+                    </li>
+                    <li>
+                      <code>https://*.mghorab.com</code>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Customized the login/sign-up form to align with the desired
+                  theme.
+                </li>
+              </ol>
+              <div className="lg:flex lg:gap-4">
+                <img src={allowedUrls} alt="Allowed URLs" className="lg:w-64" />
+                <img src={customForms} alt="Allowed URLs" className="lg:h-64" />
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <h2 className="text-2xl font-semibold">
+                Setting Up Vite Project
+              </h2>
+              <p>
+                With Auth0 configured, I proceeded to create a new Vite project,
+                selecting React and TypeScript. After establishing the basic
+                configurations, I installed the required packages, including the
+                Auth0 React SDK, which provides methods and variables to
+                facilitate Auth0 integration.
+              </p>
+              <p>
+                I also created an <code>AuthenticationProvider</code> that wraps
+                the <code>App</code> component. Within this provider, I imported{" "}
+                <code>Auth0Provider</code> and passed the necessary props. One
+                crucial prop for this project was <code>cookieDomain</code>,
+                which I discovered through research in the Auth0 documentation
+                and community.
+                <a
+                  className="block mt-3 text-sm text-blue-600 hover:underline font-semibold visited:text-blue-800"
+                  href="https://auth0.github.io/nextjs-auth0/types/config.ConfigParameters.html#:~:text=See%20autoSave.-,AUTH0_COOKIE_DOMAIN,-%3A%20See%20domain."
+                >
+                  https://auth0.github.io/nextjs-auth0/types/config.ConfigParameters.html
+                </a>
+                <a
+                  className="block mt-3 text-sm text-blue-600 hover:underline font-semibold visited:text-blue-800"
+                  href="https://community.auth0.com/t/how-to-login-once-across-multiple-subdomains-on-a-custom-domain/78614/1"
+                >
+                  https://community.auth0.com/t/how-to-login-once-across-multiple-subdomains-on-a-custom-domain/78614/1
+                </a>
+              </p>
+
+              <div className="lg:flex lg:gap-4">
+                <img src={authenticationProvider} alt="Allowed URLs" />
+              </div>
+
+              <ul className="list-disc list-inside pl-4">
+                <li>Created a new Vite project.</li>
+                <li>Selected React and TypeScript as the stack.</li>
+                <li>Established basic configurations for the Vite project.</li>
+                <li>
+                  Installed necessary packages and the Auth0 React SDK, which
+                  provides methods and variables for Auth0 integration.
+                </li>
+                <li>
+                  Created an AuthenticationProvider to wrap the App component.
+                </li>
+                <li>
+                  Imported Auth0Provider within the provider and passed
+                  necessary props, including cookieDomain.
+                </li>
+                <li>
+                  Discovered the importance of cookieDomain through research
+                  here and this in the Auth0 Community.
+                </li>
+              </ul>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <h2 className="text-2xl font-semibold">
+                Implementing Routing and Authentication
+              </h2>
+              <p>
+                Once Auth0 was properly configured, I can focus on implementing
+                routing and authentication. Here are the steps I took:
+                <ul className="list-disc list-inside pl-4">
+                  <li>
+                    Installed <code>react-router</code> to manage routing.
+                  </li>
+                  <li>
+                    Created a routes directory within the app to contain
+                    <code>auth-guard</code>, <code>RoutesTable</code>, and{" "}
+                    <code>paths</code>.
+                  </li>
+                  <li>
+                    Implemented the <code>AuthGuard</code>, using the
+                    <code>withAuthenticationRequired</code> function to restrict
+                    access to routes for logged-in users.
+                  </li>
+                  <li>
+                    <code>RoutesTable</code> to define all available routes in
+                    the app, with some utilizing the <code>AuthGuard</code>.
+                  </li>
+                </ul>
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <h2 className="text-2xl font-semibold">
+                Setting Up Testing: Vite + React Testing Library
+              </h2>
+              <p>
+                For testing purposes, I installed <code>vitest</code>,{" "}
+                <code>jsdom</code>, and <code>react-testing-library</code>. I
+                configured these packages and created a test setup file with
+                default configurations. Additionally, I updated{" "}
+                <code>vite.config.ts</code> with the following lines:
+              </p>
+            </div>
+            <pre className="bg-gray-200 p-2 rounded-lg mt-2">
+              <code>
+                test: &#123;
+                <br />
+                &nbsp;&nbsp;globals: true,
+                <br />
+                &nbsp;&nbsp;environment: "jsdom",
+                <br />
+                &nbsp;&nbsp;include: ["src/**/*.test.tsx"],
+                <br />
+                &nbsp;&nbsp;setupFiles: "./vitest-setup.ts",
+                <br />
+                &#125;
+              </code>
+            </pre>
 
             <p>
-              <strong>Authentication Service:</strong> A shared authentication
-              service was created using Auth0. This service handled user
-              authentication, session management, and provided endpoints for
-              login, logout, and user information retrieval.
+              With protected routes in place, I proceeded to add components that
+              would contain the app's content. I also wrote unit tests for the
+              home page and profile page.
             </p>
 
             <p>
-              <strong>React Components:</strong> Dedicated React components were
-              designed for login, logout, and user profile functionalities.
-              These components were designed for easy integration into any SPA
-              within the MILES suite.
+              To prepare for deployment, I established a Git repository for the
+              app. I ensured that it was ready for deployment to Vercel.
             </p>
-
             <p>
-              <strong>Routing:</strong> React Router was employed for managing
-              routing between different SPAs. Each SPA was configured to load
-              shared authentication components on specific routes.
+              On Vercel, I created two separate projects, each with its
+              subdomain linked to it. After deploying both apps, I thoroughly
+              tested them to ensure their functionality.
             </p>
+          </ContentTile>
 
-            <p>
-              <strong>Configuration Management:</strong> Auth0 configurations
-              were securely stored in environment variables to safeguard
-              sensitive information. This approach ensured that configurations
-              were consistent and easy to update across all applications.
-            </p>
-
-            <p>
-              <strong>State Management:</strong> React's built-in state
-              management was utilized to manage user authentication state. A
-              global state stored user information, enabling seamless Single
-              Sign-On functionality across all SPAs.
-            </p>
-
-            <p>
-              <strong>Testing:</strong> Unit tests were implemented using Vitest
-              and Jest to guarantee the reliability of components and the
-              authentication service.
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg shadow-md mt-4">
+          <ContentTile>
             <h2 className="text-2xl font-semibold mb-4">Challenges Faced</h2>
             <p>Throughout the project, several challenges were encountered:</p>
             <ol className="list-decimal list-inside ml-4">
-              <li>
-                <strong>Cross-Subdomain Authentication:</strong> Enabling users
-                to remain signed in when navigating between subdomains posed a
-                significant challenge due to security restrictions on cookies.
-              </li>
-              <li>
-                <strong>Configuration Management:</strong> Managing distinct
-                configurations for each SPA while keeping them synchronized with
-                the authentication service proved to be complex.
-              </li>
-              <li>
-                <strong>Testing Single Sign-On:</strong> Testing SSO
-                functionality across subdomains necessitated the setup of
-                multiple development environments and configurations.
+              <li className="my-3">
+                <strong>Cross-Subdomain Authentication:</strong>
+                <p>
+                  Ensuring that users stay authenticated while moving across
+                  subdomains posed a notable challenge because of security
+                  constraints related to cookies.
+                </p>
               </li>
             </ol>
-          </div>
+          </ContentTile>
 
-          <div className="bg-white p-6 rounded-lg shadow-md mt-4">
-            <h2 className="text-2xl font-semibold mb-4">
-              Overcoming Challenges
-            </h2>
-            <p>
-              <strong>Cross-Subdomain Authentication:</strong>
-            </p>
-            <ul className="list-disc list-inside ml-4">
-              <li>
-                <strong>Cookie Domain Configuration:</strong> To address this
-                challenge, cookie configurations were adjusted to allow them to
-                be valid across all subdomains. This was achieved by setting the
-                domain attribute appropriately, ensuring the authentication
-                cookie was shared.
-              </li>
-            </ul>
-
-            <p>
-              <strong>Configuration Management:</strong>
-            </p>
-            <ul className="list-disc list-inside ml-4">
-              <li>
-                <strong>Central Configuration File:</strong> A central
-                configuration file was introduced to consolidate all necessary
-                configuration settings for each SPA and the authentication
-                service. This approach enhanced consistency and simplified
-                updates.
-              </li>
-            </ul>
-
-            <p>
-              <strong>Testing Single Sign-On:</strong>
-            </p>
-            <ul className="list-disc list-inside ml-4">
-              <li>
-                <strong>Local Development Environments:</strong> Multiple local
-                development environments were established to mimic different
-                subdomains, enabling thorough testing of SSO functionality.
-              </li>
-              <li>
-                <strong>Configuration Scripts:</strong> Automated scripts were
-                developed to streamline the setup of development environments
-                with the correct configurations for each SPA, easing the testing
-                process.
-              </li>
-            </ul>
-          </div>
+          <ContentTile>
+            <div className="mb-4">
+              <h2 className="text-2xl font-semibold mb-4">
+                Overcoming Challenges
+              </h2>
+              <p>
+                <strong>Cross-Subdomain Authentication:</strong>
+              </p>
+              <ul className="list-disc list-inside ml-4">
+                <li>
+                  <strong>Cookie Domain Configuration:</strong> To overcome this
+                  challenge, adjustments were made to the cookie configurations.
+                  The <code>cookieDomain</code> property was configured
+                  appropriately, enabling cookies to be valid across all
+                  subdomains. This configuration ensured the sharing of the
+                  authentication cookie.
+                </li>
+              </ul>
+            </div>
+          </ContentTile>
         </Container>
       </div>
     </Page>

@@ -6,15 +6,7 @@ import Button from "../../button";
 import UserDropdown from "./user-dropdown";
 
 const Navbar = () => {
-  const { user, logout, isLoading } = useAuth0();
-
-  const logoutHandler = () => {
-    logout({
-      logoutParams: {
-        returnTo: window.location.origin,
-      },
-    });
-  };
+  const { user, isLoading } = useAuth0();
 
   return (
     <header className="fixed w-full top-0 right-0 bg-black z-50">
@@ -34,9 +26,7 @@ const Navbar = () => {
           <div className="hidden lg:flex lg:items-center">
             <Button href="/case-study">Study Case</Button>
           </div>
-          {user && !isLoading && (
-            <UserDropdown user={user} logoutHandler={logoutHandler} />
-          )}
+          {user && !isLoading && <UserDropdown user={user} />}
         </div>
       </nav>
     </header>

@@ -20,6 +20,7 @@ export default defineConfig({
       images: "/src/images",
       pages: "/src/pages",
       routes: "/src/routes",
+      types: "/src/types",
       "test-utils": "/src/test-utils",
     },
   },

@@ -3,13 +3,13 @@ import { ChevronDownIcon, UserIcon } from "@heroicons/react/24/outline";
 import Button from "../../button";
 import { Fragment } from "react";
 import { User } from "@auth0/auth0-react";
+import * as paths from "routes/paths";
 
 interface Props {
   user: User;
-  logoutHandler: () => void;
 }
 
-const UserDropdown = ({ user, logoutHandler }: Props): JSX.Element => {
+const UserDropdown = ({ user }: Props): JSX.Element => {
   return (
     <div className="text-right" role="menu">
       <Menu as="div" className="relative inline-block text-left">
@@ -67,7 +67,7 @@ const UserDropdown = ({ user, logoutHandler }: Props): JSX.Element => {
 
               <Menu.Item>
                 <Button
-                  onClick={() => logoutHandler()}
+                  href={paths.logoutPath}
                   className="w-[110px]"
                   role="menuitem"
                 >

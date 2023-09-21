@@ -1,5 +1,7 @@
 export const NODE_ENV = import.meta.env.NODE_ENV || "development";
 
+export const isProduction = NODE_ENV === "production";
+
 // Auth0 Variables
 export const AUTH0_BASE_URL = import.meta.env.VITE_AUTH0_BASE_URL;
 export const AUTH0_CLIENT_ID = import.meta.env.VITE_AUTH0_CLIENT_ID;
