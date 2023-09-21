@@ -31,7 +31,6 @@ const AuthenticationProvider = ({
       domain={domain}
       onRedirectCallback={onRedirectCallback}
       useRefreshTokens
-      cacheLocation="localstorage"
     >
       {children}
     </Auth0Provider>
